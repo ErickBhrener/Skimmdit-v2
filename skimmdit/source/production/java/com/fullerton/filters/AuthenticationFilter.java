@@ -18,7 +18,6 @@ public class AuthenticationFilter implements Filter
                          FilterChain chain) throws IOException, ServletException
     {
         HttpSession session = ((HttpServletRequest)request).getSession(false);
-        System.out.println(((HttpServletRequest) request).getRequestURI());
         if(((HttpServletRequest) request).getRequestURI().equals("/skimmdit/main/list")){
         	chain.doFilter(request, response);
         }else{

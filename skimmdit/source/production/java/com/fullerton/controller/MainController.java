@@ -81,7 +81,6 @@ public class MainController {
             @PathVariable("postId") int postId){
 		Post p = this.postsDatabase.get(postId);
 		p.setVotes(p.getVotes()+1);
-		System.out.println(p.getVotes());
 		this.postsDatabase.put(postId, p);
 		this.sortPosts();
 		return new RedirectView("/main/list", true, false);
@@ -92,7 +91,6 @@ public class MainController {
 		Post p = this.postsDatabase.get(postId);
 		if(p.getVotes()!=0)
 			p.setVotes(p.getVotes()-1);
-		System.out.println(p.getVotes());
 		this.postsDatabase.put(postId, p);
 		this.sortPosts();
 		return new RedirectView("/main/list", true, false);

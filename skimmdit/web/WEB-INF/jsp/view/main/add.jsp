@@ -1,4 +1,4 @@
-<template:basic htmlTitle="Create a Ticket" bodyTitle="Create a Ticket">
+<template:basic htmlTitle="Create a Post" bodyTitle="Create a Post">
     <form:form method="post" enctype="multipart/form-data"
                modelAttribute="postForm">
         <form:label path="title">Title</form:label><br />

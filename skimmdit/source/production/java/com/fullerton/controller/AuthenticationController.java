@@ -96,7 +96,6 @@ public class AuthenticationController
         }else{
         	this.userDatabase.put(user.getUsername(), user.getPassword());
         	model.put("userResult", true);
-        	System.out.println("User created");
         	return this.getLogin();
         }
     };
