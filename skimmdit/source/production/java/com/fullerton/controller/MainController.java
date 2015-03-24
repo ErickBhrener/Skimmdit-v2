@@ -10,10 +10,13 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -48,8 +51,12 @@ public class MainController {
         return "main/add";
     }
 	@RequestMapping(value = "create", method = RequestMethod.POST)
-    public View create(HttpSession session, Post post) throws IOException
+    public ModelAndView create(HttpSession session, @Valid @ModelAttribute("postForm") Post post,
+            BindingResult result) throws IOException
     {
+		if (result.hasErrors()) {
+			return new ModelAndView("/main/add");
+        }
         Post p = new Post();
         p.setTitle(post.getTitle());
         p.setName((String)session.getAttribute("username"));
@@ -58,7 +65,7 @@ public class MainController {
         p.setVotes(0);
         this.postsDatabase.put(this.getNextTicketId(), p);
 
-        return new RedirectView("/main/list", true, false);
+        return this.getListRedirectModelAndView();
     }
 	@RequestMapping(value = "view/{postId}", method = RequestMethod.GET)
     public ModelAndView view(Map<String, Object> model,
@@ -117,5 +124,14 @@ public class MainController {
 		}
 		this.postsDatabase =  sortedMap;
 	
-}
+	}
+	private ModelAndView getListRedirectModelAndView()
+    {
+        return new ModelAndView(this.getListRedirectView());
+    }
+
+    private View getListRedirectView()
+    {
+        return new RedirectView("/main/list", true, false);
+    }
 }

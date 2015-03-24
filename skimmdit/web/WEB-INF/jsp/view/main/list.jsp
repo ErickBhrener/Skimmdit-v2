@@ -1,5 +1,4 @@
-<%--@elvariable id="ticketDatabase" type="java.util.Map<Integer, com.wrox.site.Ticket>"--%>
-<template:basic htmlTitle="Skimmdit" bodyTitle="Skimmdit">
+<template:basic htmlTitle="Main Page" bodyTitle="Posts">
     <c:choose>
         <c:when test="${fn:length(postDatabase) == 0}">
             <i>There are no posts in the system.</i>
@@ -17,13 +16,7 @@
                 <a href="<c:url value="/main/view/${entry.key}" />">
                 	<c:out value="${entry.value.title}"/>
                 </a>
-                <br />
-<%--                 <c:out value="${entry.value.description}" /> created ticket --%>
-                <a href="${post.link}" target="_blank">
-      				<c:out value="${post.link}"/>
-    			</a>
-<%--                 <wrox:formatDate value="${entry.value.dateCreated}" type="both" --%>
-<!--                                  timeStyle="short" dateStyle="medium" /><br /> -->
+                <p>  </p>(User: <c:out value="${entry.value.name}"/>)
                 <br />
             </c:forEach>
         </c:otherwise>

@@ -15,12 +15,10 @@
     </head>
     <body>
         <h1>Skimmdit</h1>
+        <jsp:invoke fragment="navigationContent" />
         <table border="0" id="bodyTable">
             <tbody>
                 <tr>
-                    <td class="sidebarCell">
-                        <jsp:invoke fragment="navigationContent" />
-                    </td>
                     <td class="contentCell">
                         <h2><c:out value="${fn:trim(bodyTitle)}" /></h2>
                         <jsp:doBody />

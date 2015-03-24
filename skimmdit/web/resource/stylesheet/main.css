@@ -50,13 +50,13 @@ h3 {
 }
 
 #bodyTable .sidebarCell {
-    horizontal-align: top;
+    vertical-align: top;
     padding: 0;
     width: 150px;
     border-right: 1px dashed #070;
 }
 
 #bodyTable .contentCell {
-    horizontal-align: top;
+    vertical-align: top;
     padding: 0 0 0 12px;
 }
