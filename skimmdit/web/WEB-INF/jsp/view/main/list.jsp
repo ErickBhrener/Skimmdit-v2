@@ -17,7 +17,7 @@
                 	<c:out value="${entry.value.title}"/>
                 </a>
                 <p>  </p>(User: <c:out value="${entry.value.name}"/>)
-                <br />
+                <br /><br />
             </c:forEach>
         </c:otherwise>
     </c:choose>

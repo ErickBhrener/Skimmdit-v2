@@ -19,7 +19,7 @@ public class AuthenticationFilter implements Filter
     {
         HttpSession session = ((HttpServletRequest)request).getSession(false);
         System.out.println(((HttpServletRequest) request).getRequestURI());
-        if(((HttpServletRequest) request).getRequestURI().equals("/spring-hybrid-config/main/list")){
+        if(((HttpServletRequest) request).getRequestURI().equals("/skimmdit/main/list")){
         	chain.doFilter(request, response);
         }else{
         	if(session == null || session.getAttribute("username") == null)

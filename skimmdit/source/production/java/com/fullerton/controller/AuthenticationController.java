@@ -23,12 +23,6 @@ public class AuthenticationController
     private static final Logger log = LogManager.getLogger();
     private static final Map<String, String> userDatabase = new Hashtable<>();
 
-    static {
-        userDatabase.put("Nicholas", "password");
-        userDatabase.put("Sarah", "drowssap");
-        userDatabase.put("Mike", "wordpass");
-        userDatabase.put("John", "green");
-    }
 
     @RequestMapping("logout")
     public View logout(HttpSession session)
